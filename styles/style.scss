@@ -4,8 +4,42 @@
   box-sizing: border-box;
 }
 
+@mixin grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@mixin flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+@mixin button($bgColor, $color) {
+  background-color: $bgColor;
+  border: 1px solid $color;
+  color: $color;
+  transition: transform 0.5s;
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
 body {
   font-family: "Roboto", sans-serif;
+}
+
+button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
 header {
@@ -23,7 +57,7 @@ header {
       height: auto;
     }
 
-    .items {
+    .links {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -43,9 +77,6 @@ header {
       }
 
       .right {
-        // display: grid;
-        // justify-content: space-between;
-        // align-items: center;
         a {
           text-decoration: none;
           font-size: 16px;
@@ -59,29 +90,363 @@ header {
             margin-right: 5px;
           }
         }
-        button {
-          padding: 8px 15px;
-          border-radius: 20px;
-          font-size: 15px;
-          font-weight: 600;
-          border: none;
-          cursor: pointer;
-        }
         .secondary {
           margin-left: 3rem;
-          color: #212121;
-          background-color: #fff;
-          border: 1px solid #212121;
+          @include button(#fff, #212121);
           &:hover {
             background-color: rgba(0, 0, 0, 0.06);
           }
         }
         .primary {
           margin-left: 1rem;
-          background-color: #212121;
-          color: #fff;
+          @include button(#212121, #fff);
           &:hover {
             background-color: rgba(0, 0, 0, 0.7);
+          }
+        }
+      }
+    }
+  }
+}
+
+main {
+  .box1 {
+    @include grid();
+    margin: 40px 0;
+    background-color: #006241;
+    color: #fff;
+    .left {
+      padding: 40px;
+      @include flex();
+      .container {
+        max-width: 70%;
+        @include flex();
+        p {
+          font-size: 20px;
+          line-height: 35px;
+          margin: 30px 0;
+        }
+        button {
+          @include button(#006241, #fff);
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+          }
+        }
+      }
+    }
+    .right {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .box2 {
+    @include grid();
+    grid-template-areas: "left right";
+    margin-bottom: 40px;
+    background-color: #d4e9e2;
+    color: #212121;
+
+    .left {
+      grid-area: left;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .right {
+      grid-area: right;
+      padding: 40px;
+      @include flex();
+      justify-content: center;
+      .container {
+        max-width: 80%;
+        @include flex();
+        p {
+          font-size: 20px;
+          line-height: 35px;
+          margin: 30px 0;
+        }
+        button {
+          @include button(#d4e9e2, #212121);
+          &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  .box3 {
+    @include grid();
+    gap: 30px;
+    margin-bottom: 40px;
+    color: #fff;
+    .left {
+      background-color: #1e3932;
+    }
+    .right {
+      background-color: #1e3932;
+    }
+    .food {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .desc {
+      @include flex();
+      padding: 10px 30px;
+      text-align: center;
+      height: 320px;
+
+      h1 {
+        font-size: 50px;
+        letter-spacing: 2px;
+      }
+      p {
+        font-size: 25px;
+        line-height: 35px;
+        margin: 30px 50px;
+      }
+      button {
+        @include button(#1e3932, #fff);
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+    &:last-child {
+      div {
+        p {
+          margin: 30px;
+        }
+      }
+    }
+  }
+
+  .box4 {
+    @include grid();
+    gap: 30px;
+    margin-bottom: 40px;
+    color: #2f3932;
+    .left {
+      background-color: #d4e9e2;
+    }
+    .right {
+      background-color: #d4e9e2;
+    }
+    .cup {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .desc {
+      @include flex();
+      padding: 20px 30px;
+      text-align: center;
+
+      h1 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 20px;
+        line-height: 35px;
+        margin: 30px;
+      }
+      button {
+        @include button(#d4e9e2, #2f3932);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  .box5 {
+    @include grid();
+    margin-bottom: 40px;
+    background-color: #d4e9e2;
+    color: #2f3932;
+
+    .left {
+      @include flex();
+      padding: 30px 70px;
+      text-align: center;
+
+      h1 {
+        font-size: 24px;
+        padding: 0 40px;
+      }
+      p {
+        font-size: 20px;
+        line-height: 35px;
+        margin: 30px;
+      }
+      button {
+        @include button(#d4e9e2, #2f3932);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+
+    .right {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .box6 {
+    @include grid();
+    margin-bottom: 40px;
+    background-color: #006241;
+    color: #fff;
+
+    .left {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .right {
+      @include flex();
+      padding: 30px 90px;
+      text-align: center;
+      justify-content: center;
+
+      h1 {
+        font-size: 24px;
+        padding: 0 40px;
+      }
+      p {
+        font-size: 20px;
+        line-height: 35px;
+        margin: 30px;
+      }
+      button {
+        @include button(#006241, #fff);
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+  }
+
+  .box7 {
+    @include grid();
+    grid-template-areas: "left right";
+    margin-bottom: 40px;
+    background-color: #f2f0eb;
+    color: #212121;
+
+    .left {
+      grid-area: right;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .right {
+      @include flex();
+      grid-area: left;
+      padding: 30px 90px;
+      text-align: center;
+      justify-content: center;
+
+      h1 {
+        font-size: 24px;
+        padding: 0 40px;
+      }
+      p {
+        font-size: 20px;
+        line-height: 35px;
+        margin: 30px;
+      }
+      button {
+        @include button(#f2f0eb, #212121);
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+}
+
+footer {
+  width: 100%;
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1), 0 -2px 2px rgba(0, 0, 0, 0.06),
+    0 0 2px rgba(0, 0, 0, 0.07);
+
+  .container {
+    padding: 50px;
+
+    .links {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 60px;
+
+      .link {
+        h3 {
+          font-size: 20px;
+          color: rgba(0, 0, 0, 0.5);
+          margin-bottom: 30px;
+        }
+
+        ul {
+          list-style-type: none;
+
+          li {
+            a {
+              color: rgba(0, 0, 0, 0.5);
+              text-decoration: none;
+              line-height: 25px;
+              &:hover {
+                color: #212121;
+              }
+            }
+
+            &:not(:last-child) {
+              margin-bottom: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      padding: 50px;
+
+      .links {
+        display: block;
+
+        .link {
+          h3 {
+            padding: 20px 0;
+            transition: 0.4s;
+            // margin-bottom: 0;
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.06);
+            }
+          }
+
+          ul {
+            overflow: hidden;
+            max-height: 0;
+            transform: height 0.2s ease-in-out;
+            background-color: gray;
           }
         }
       }

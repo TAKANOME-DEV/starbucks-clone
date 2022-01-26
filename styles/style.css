@@ -9,6 +9,19 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+button {
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
 header {
   width: 100%;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.06), 0 0 2px rgba(0, 0, 0, 0.07);
@@ -29,7 +42,7 @@ header nav .logo {
   height: auto;
 }
 
-header nav .items {
+header nav .links {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -41,7 +54,7 @@ header nav .items {
           align-items: center;
 }
 
-header nav .items .left a {
+header nav .links .left a {
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
@@ -50,53 +63,614 @@ header nav .items .left a {
   text-transform: uppercase;
 }
 
-header nav .items .left a:hover {
+header nav .links .left a:hover {
   color: #006241;
 }
 
-header nav .items .right a {
+header nav .links .right a {
   text-decoration: none;
   font-size: 16px;
   color: #212121;
 }
 
-header nav .items .right a:hover {
+header nav .links .right a:hover {
   color: #006241;
 }
 
-header nav .items .right a .marker {
+header nav .links .right a .marker {
   width: 16px;
   height: 16px;
   margin-right: 5px;
 }
 
-header nav .items .right button {
-  padding: 8px 15px;
-  border-radius: 20px;
-  font-size: 15px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-}
-
-header nav .items .right .secondary {
+header nav .links .right .secondary {
   margin-left: 3rem;
-  color: #212121;
   background-color: #fff;
   border: 1px solid #212121;
+  color: #212121;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
 }
 
-header nav .items .right .secondary:hover {
+header nav .links .right .secondary:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+header nav .links .right .secondary:hover {
   background-color: rgba(0, 0, 0, 0.06);
 }
 
-header nav .items .right .primary {
+header nav .links .right .primary {
   margin-left: 1rem;
   background-color: #212121;
+  border: 1px solid #fff;
+  color: #fff;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+header nav .links .right .primary:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+header nav .links .right .primary:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+main .box1 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin: 40px 0;
+  background-color: #006241;
   color: #fff;
 }
 
-header nav .items .right .primary:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+main .box1 .left {
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .box1 .left .container {
+  max-width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .box1 .left .container p {
+  font-size: 20px;
+  line-height: 35px;
+  margin: 30px 0;
+}
+
+main .box1 .left .container button {
+  background-color: #006241;
+  border: 1px solid #fff;
+  color: #fff;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box1 .left .container button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box1 .left .container button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .box1 .right img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box2 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "left right";
+  margin-bottom: 40px;
+  background-color: #d4e9e2;
+  color: #212121;
+}
+
+main .box2 .left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: left;
+}
+
+main .box2 .left img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box2 .right {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: right;
+  padding: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .box2 .right .container {
+  max-width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .box2 .right .container p {
+  font-size: 20px;
+  line-height: 35px;
+  margin: 30px 0;
+}
+
+main .box2 .right .container button {
+  background-color: #d4e9e2;
+  border: 1px solid #212121;
+  color: #212121;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box2 .right .container button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box2 .right .container button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+main .box3 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+main .box3 .left {
+  background-color: #1e3932;
+}
+
+main .box3 .right {
+  background-color: #1e3932;
+}
+
+main .box3 .food img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box3 .desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px 30px;
+  text-align: center;
+  height: 320px;
+}
+
+main .box3 .desc h1 {
+  font-size: 50px;
+  letter-spacing: 2px;
+}
+
+main .box3 .desc p {
+  font-size: 25px;
+  line-height: 35px;
+  margin: 30px 50px;
+}
+
+main .box3 .desc button {
+  background-color: #1e3932;
+  border: 1px solid #fff;
+  color: #fff;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box3 .desc button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box3 .desc button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .box3:last-child div p {
+  margin: 30px;
+}
+
+main .box4 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+  color: #2f3932;
+}
+
+main .box4 .left {
+  background-color: #d4e9e2;
+}
+
+main .box4 .right {
+  background-color: #d4e9e2;
+}
+
+main .box4 .cup img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box4 .desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+main .box4 .desc h1 {
+  font-size: 24px;
+}
+
+main .box4 .desc p {
+  font-size: 20px;
+  line-height: 35px;
+  margin: 30px;
+}
+
+main .box4 .desc button {
+  background-color: #d4e9e2;
+  border: 1px solid #2f3932;
+  color: #2f3932;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box4 .desc button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box4 .desc button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+main .box5 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-bottom: 40px;
+  background-color: #d4e9e2;
+  color: #2f3932;
+}
+
+main .box5 .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 70px;
+  text-align: center;
+}
+
+main .box5 .left h1 {
+  font-size: 24px;
+  padding: 0 40px;
+}
+
+main .box5 .left p {
+  font-size: 20px;
+  line-height: 35px;
+  margin: 30px;
+}
+
+main .box5 .left button {
+  background-color: #d4e9e2;
+  border: 1px solid #2f3932;
+  color: #2f3932;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box5 .left button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box5 .left button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+main .box5 .right img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box6 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  margin-bottom: 40px;
+  background-color: #006241;
+  color: #fff;
+}
+
+main .box6 .left img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box6 .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px 90px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .box6 .right h1 {
+  font-size: 24px;
+  padding: 0 40px;
+}
+
+main .box6 .right p {
+  font-size: 20px;
+  line-height: 35px;
+  margin: 30px;
+}
+
+main .box6 .right button {
+  background-color: #006241;
+  border: 1px solid #fff;
+  color: #fff;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box6 .right button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box6 .right button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .box7 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "left right";
+  margin-bottom: 40px;
+  background-color: #f2f0eb;
+  color: #212121;
+}
+
+main .box7 .left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: right;
+}
+
+main .box7 .left img {
+  width: 100%;
+  height: 100%;
+}
+
+main .box7 .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: left;
+  padding: 30px 90px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .box7 .right h1 {
+  font-size: 24px;
+  padding: 0 40px;
+}
+
+main .box7 .right p {
+  font-size: 20px;
+  line-height: 35px;
+  margin: 30px;
+}
+
+main .box7 .right button {
+  background-color: #f2f0eb;
+  border: 1px solid #212121;
+  color: #212121;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+main .box7 .right button:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+main .box7 .right button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  width: 100%;
+  -webkit-box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1), 0 -2px 2px rgba(0, 0, 0, 0.06), 0 0 2px rgba(0, 0, 0, 0.07);
+          box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1), 0 -2px 2px rgba(0, 0, 0, 0.06), 0 0 2px rgba(0, 0, 0, 0.07);
+}
+
+footer .container {
+  padding: 50px;
+}
+
+footer .container .links {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  gap: 60px;
+}
+
+footer .container .links .link h3 {
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+}
+
+footer .container .links .link ul {
+  list-style-type: none;
+}
+
+footer .container .links .link ul li a {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  line-height: 25px;
+}
+
+footer .container .links .link ul li a:hover {
+  color: #212121;
+}
+
+footer .container .links .link ul li:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 1024px) {
+  footer .container {
+    padding: 50px;
+  }
+  footer .container .links {
+    display: block;
+  }
+  footer .container .links .link h3 {
+    padding: 20px 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  footer .container .links .link h3:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+  footer .container .links .link ul {
+    overflow: hidden;
+    max-height: 0;
+    -webkit-transform: height 0.2s ease-in-out;
+            transform: height 0.2s ease-in-out;
+    background-color: gray;
+  }
 }
 /*# sourceMappingURL=style.css.map */
