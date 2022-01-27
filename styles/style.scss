@@ -109,19 +109,10 @@ header {
     }
 
     @media (max-width: 795px) {
-      // display: flex;
-      // justify-content: space-between;
-      // align-items: center;
-      // position: relative;
-
       .icon {
         position: relative;
         left: 95%;
         top: 50%;
-        // right: 5%;
-        // top: 4%;
-        // z-index: 10;
-        transform: translateY(-50%);
         width: 40px;
         height: 40px;
         display: flex;
@@ -129,6 +120,7 @@ header {
         align-items: center;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
+        transform: translateY(-50%);
 
         &:hover {
           border-radius: 50%;
@@ -177,16 +169,7 @@ header {
       }
 
       .links {
-        transition: transform 0.3s ease-in-out;
-        transform: translateX(100%);
-        // display: none;
-        position: absolute;
-        // z-index: 1000;
-        opacity: 0;
-        // top: 0;
         top: 15%;
-        // right: 0;
-        // left: 20%;
         right: 0;
         width: 80%;
         height: calc(100vh - 90px);
@@ -196,9 +179,14 @@ header {
         justify-content: inherit;
         align-items: flex-start;
         padding: 0 20px;
-        // overflow-y: scroll;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+        position: absolute;
+        opacity: 0;
+
         .left {
           margin: 20px 0;
+
           a {
             display: block;
             color: #212121;
@@ -207,20 +195,13 @@ header {
           }
         }
         .right {
-          // &::before {
-          //   content: "";
-          //   width: 400px;
-          //   height: 2px;
-          //   background-color: #212121;
-          // }
           display: flex;
-          // width: 100%;
-          // justify-content: center;
           flex-direction: column-reverse;
-          // margin-bottom: 20px;
+
           .primary {
             margin-left: 0;
           }
+
           .secondary {
             margin: 15px 0;
           }
@@ -297,7 +278,8 @@ main {
 
     .right {
       grid-area: right;
-      padding: 40px;
+      padding: 40px 0;
+      // padding: 40px;
       @include flex();
       justify-content: center;
 
@@ -654,9 +636,15 @@ footer {
     .box5,
     .box6,
     .box7 {
-      // display: grid;
-      grid-template-columns: 1fr;
-      // flex-wrap: wrap;
+      // grid-template-columns: 1fr;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box1,
+    .box2,
+    .box5 {
+      flex-direction: column-reverse;
     }
   }
 }

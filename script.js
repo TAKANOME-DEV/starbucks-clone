@@ -23,7 +23,3 @@ icon.addEventListener("click", function () {
   main.classList.toggle("open");
   body.classList.toggle("open");
 });
-
-// link.addEventListener("click", function () {
-//   this.classList.toggle("open");
-// });

@@ -129,8 +129,6 @@ header nav .links .right .primary:hover {
     position: relative;
     left: 95%;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%);
     width: 40px;
     height: 40px;
     display: -webkit-box;
@@ -145,6 +143,8 @@ header nav .links .right .primary:hover {
     cursor: pointer;
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
   header nav .icon:hover {
     border-radius: 50%;
@@ -190,14 +190,6 @@ header nav .links .right .primary:hover {
             transform: rotate(-45deg) translate(30px, 30px);
   }
   header nav .links {
-    -webkit-transition: -webkit-transform 0.3s ease-in-out;
-    transition: -webkit-transform 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
-    -webkit-transform: translateX(100%);
-            transform: translateX(100%);
-    position: absolute;
-    opacity: 0;
     top: 15%;
     right: 0;
     width: 80%;
@@ -217,6 +209,14 @@ header nav .links .right .primary:hover {
         -ms-flex-align: start;
             align-items: flex-start;
     padding: 0 20px;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    position: absolute;
+    opacity: 0;
   }
   header nav .links .left {
     margin: 20px 0;
@@ -351,7 +351,7 @@ main .box2 .right {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: right;
-  padding: 40px;
+  padding: 40px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -856,8 +856,21 @@ footer .container .links .link ul li:not(:last-child) {
   main .box5,
   main .box6,
   main .box7 {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  main .box1,
+  main .box2,
+  main .box5 {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
 }
 /*# sourceMappingURL=style.css.map */
