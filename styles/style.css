@@ -7,6 +7,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
 }
 
 button {
@@ -16,14 +17,6 @@ button {
   font-weight: 600;
   border: none;
   cursor: pointer;
-}
-
-.active {
-  background-color: rgba(0, 0, 0, 0.06);
-}
-
-.active::after {
-  content: "-";
 }
 
 header {
@@ -39,6 +32,10 @@ header nav {
       grid-template-columns: 90px 1fr;
   margin: 0 40px;
   padding: 20px 0;
+}
+
+header nav .icon {
+  display: none;
 }
 
 header nav .logo {
@@ -127,6 +124,131 @@ header nav .links .right .primary:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
+@media (max-width: 795px) {
+  header nav .icon {
+    position: relative;
+    left: 95%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  header nav .icon:hover {
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+  header nav .icon .burger-icon {
+    width: 25px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  header nav .icon .burger-icon::before, header nav .icon .burger-icon::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  header nav .icon .burger-icon::before {
+    -webkit-transform: translateY(-7px);
+            transform: translateY(-7px);
+  }
+  header nav .icon .burger-icon::after {
+    -webkit-transform: translateY(7px);
+            transform: translateY(7px);
+  }
+  header nav .icon.open .burger-icon {
+    -webkit-transform: translateX(-42px);
+            transform: translateX(-42px);
+    background: transparent;
+  }
+  header nav .icon.open .burger-icon::before {
+    -webkit-transform: rotate(45deg) translate(30px, -30px);
+            transform: rotate(45deg) translate(30px, -30px);
+  }
+  header nav .icon.open .burger-icon::after {
+    -webkit-transform: rotate(-45deg) translate(30px, 30px);
+            transform: rotate(-45deg) translate(30px, 30px);
+  }
+  header nav .links {
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    position: absolute;
+    opacity: 0;
+    top: 15%;
+    right: 0;
+    width: 80%;
+    height: calc(100vh - 90px);
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: inherit;
+        -ms-flex-pack: inherit;
+            justify-content: inherit;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding: 0 20px;
+  }
+  header nav .links .left {
+    margin: 20px 0;
+  }
+  header nav .links .left a {
+    display: block;
+    color: #212121;
+    padding: 15px 0;
+    font-size: 20px;
+  }
+  header nav .links .right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  header nav .links .right .primary {
+    margin-left: 0;
+  }
+  header nav .links .right .secondary {
+    margin: 15px 0;
+  }
+  header nav .links.open {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
 main .box1 {
   display: -ms-grid;
   display: grid;
@@ -135,6 +257,8 @@ main .box1 {
   margin: 40px 0;
   background-color: #006241;
   color: #fff;
+  text-align: center;
+  max-width: 1440px;
 }
 
 main .box1 .left {
@@ -152,7 +276,7 @@ main .box1 .left {
 }
 
 main .box1 .left .container {
-  max-width: 70%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,6 +293,7 @@ main .box1 .left .container p {
   font-size: 20px;
   line-height: 35px;
   margin: 30px 0;
+  width: 85%;
 }
 
 main .box1 .left .container button {
@@ -193,6 +318,8 @@ main .box1 .left .container button:hover {
 main .box1 .right img {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 main .box2 {
@@ -204,6 +331,7 @@ main .box2 {
   margin-bottom: 40px;
   background-color: #d4e9e2;
   color: #212121;
+  text-align: center;
 }
 
 main .box2 .left {
@@ -215,6 +343,8 @@ main .box2 .left {
 main .box2 .left img {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 main .box2 .right {
@@ -297,6 +427,8 @@ main .box3 .right {
 main .box3 .food img {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 main .box3 .desc {
@@ -312,7 +444,8 @@ main .box3 .desc {
           flex-direction: column;
   padding: 10px 30px;
   text-align: center;
-  height: 320px;
+  max-height: 400px;
+  height: 100%;
 }
 
 main .box3 .desc h1 {
@@ -320,10 +453,16 @@ main .box3 .desc h1 {
   letter-spacing: 2px;
 }
 
+@media (max-width: 1024px) {
+  main .box3 .desc h1 {
+    font-size: 28px;
+  }
+}
+
 main .box3 .desc p {
   font-size: 25px;
   line-height: 35px;
-  margin: 30px 50px;
+  margin: 30px 20px;
 }
 
 main .box3 .desc button {
@@ -437,19 +576,21 @@ main .box5 .left {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 30px 70px;
+  padding: 30px;
+  max-width: 100%;
+  width: 85%;
+  margin: 0 auto;
   text-align: center;
 }
 
 main .box5 .left h1 {
   font-size: 24px;
-  padding: 0 40px;
 }
 
 main .box5 .left p {
   font-size: 20px;
   line-height: 35px;
-  margin: 30px;
+  margin: 30px 0;
 }
 
 main .box5 .left button {
@@ -474,6 +615,8 @@ main .box5 .left button:hover {
 main .box5 .right img {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 main .box6 {
@@ -502,11 +645,8 @@ main .box6 .right {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 30px 90px;
+  padding: 30px 0;
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 main .box6 .right h1 {
@@ -559,6 +699,8 @@ main .box7 .left {
 main .box7 .left img {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 main .box7 .right {
@@ -575,22 +717,20 @@ main .box7 .right {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: left;
-  padding: 30px 90px;
+  padding: 30px 0;
   text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  max-width: 100%;
 }
 
 main .box7 .right h1 {
   font-size: 24px;
-  padding: 0 40px;
 }
 
 main .box7 .right p {
+  width: 85%;
   font-size: 20px;
   line-height: 35px;
-  margin: 30px;
+  margin: 30px 0;
 }
 
 main .box7 .right button {
@@ -632,7 +772,7 @@ footer .container .links {
 
 footer .container .links .link h3 {
   font-size: 20px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
   margin-bottom: 30px;
 }
 
@@ -662,7 +802,6 @@ footer .container .links .link ul li:not(:last-child) {
     display: block;
   }
   footer .container .links .link {
-    position: relative;
     background-color: rgba(0, 0, 0, 0.02);
     margin-bottom: 10px;
   }
@@ -673,6 +812,7 @@ footer .container .links .link ul li:not(:last-child) {
     cursor: pointer;
     margin-bottom: 10px;
     padding-left: 10px;
+    position: relative;
   }
   footer .container .links .link h3:hover {
     background-color: rgba(0, 0, 0, 0.06);
@@ -681,6 +821,16 @@ footer .container .links .link ul li:not(:last-child) {
     content: "+";
     position: absolute;
     right: 3%;
+    top: 50%;
+    font-size: 30px;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  footer .container .links .link h3.active {
+    background-color: rgba(0, 0, 0, 0.06);
+  }
+  footer .container .links .link h3.active::after {
+    content: "-";
   }
   footer .container .links .link ul {
     overflow: hidden;
@@ -691,6 +841,23 @@ footer .container .links .link ul li:not(:last-child) {
   }
   footer .container .links .link ul li {
     margin-left: 10px;
+  }
+}
+
+.body.open {
+  overflow-y: hidden;
+}
+
+@media (max-width: 768px) {
+  main .box1,
+  main .box2,
+  main .box3,
+  main .box4,
+  main .box5,
+  main .box6,
+  main .box7 {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 /*# sourceMappingURL=style.css.map */
