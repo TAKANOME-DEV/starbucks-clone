@@ -40,6 +40,10 @@ button {
 
 .active {
   background-color: rgba(0, 0, 0, 0.06);
+
+  &::after {
+    content: "-";
+  }
 }
 
 header {
@@ -433,20 +437,37 @@ footer {
         display: block;
 
         .link {
+          position: relative;
+          background-color: rgba(0, 0, 0, 0.02);
+          margin-bottom: 10px;
+
           h3 {
             padding: 20px 0;
-            transition: 0.4s;
-            // margin-bottom: 0;
+            transition: 200ms;
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding-left: 10px;
+
             &:hover {
               background-color: rgba(0, 0, 0, 0.06);
+            }
+
+            &::after {
+              content: "+";
+              position: absolute;
+              right: 3%;
             }
           }
 
           ul {
             overflow: hidden;
-            max-height: 0;
-            transform: height 0.2s ease-in-out;
-            background-color: gray;
+            display: none;
+            height: 0;
+            transition: height 0.5s ease-in-out;
+
+            li {
+              margin-left: 10px;
+            }
           }
         }
       }

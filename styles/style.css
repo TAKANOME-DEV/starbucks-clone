@@ -22,6 +22,10 @@ button {
   background-color: rgba(0, 0, 0, 0.06);
 }
 
+.active::after {
+  content: "-";
+}
+
 header {
   width: 100%;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.06), 0 0 2px rgba(0, 0, 0, 0.07);
@@ -657,20 +661,36 @@ footer .container .links .link ul li:not(:last-child) {
   footer .container .links {
     display: block;
   }
+  footer .container .links .link {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.02);
+    margin-bottom: 10px;
+  }
   footer .container .links .link h3 {
     padding: 20px 0;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+    -webkit-transition: 200ms;
+    transition: 200ms;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding-left: 10px;
   }
   footer .container .links .link h3:hover {
     background-color: rgba(0, 0, 0, 0.06);
   }
+  footer .container .links .link h3::after {
+    content: "+";
+    position: absolute;
+    right: 3%;
+  }
   footer .container .links .link ul {
     overflow: hidden;
-    max-height: 0;
-    -webkit-transform: height 0.2s ease-in-out;
-            transform: height 0.2s ease-in-out;
-    background-color: gray;
+    display: none;
+    height: 0;
+    -webkit-transition: height 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out;
+  }
+  footer .container .links .link ul li {
+    margin-left: 10px;
   }
 }
 /*# sourceMappingURL=style.css.map */
